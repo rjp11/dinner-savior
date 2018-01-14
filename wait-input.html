@@ -32,21 +32,43 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading" id="selected-restaurant">Selected Restaurant</div>
-                    <div class="input-group">
-                        <form>
-                            <div class="form-group">
-                                <label for="party-size">Party Size</label>
-                                <input class="form-control" id="party-size" type="text">
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Last Reported Wait Time</div>
+                                <h5>Party size:
+                                    <span id="reported-party-size"></span>
+                                </h5>
+                                <h5>Quoted wait time:
+                                    <span id="reported-wait-time"></span>
+                                </h5>
                             </div>
-                            <div class="form-group">
-                                <label for="quoted-wait">Quoted Wait Time (minutes)</label>
-                                <input class="form-control" id="quoted-wait" type="text">
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Your Input</div>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="party-size">Party Size</label>
+                                        <input class="form-control" id="party-size" type="text">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="quoted-wait">Quoted Wait Time (minutes)</label>
+                                        <input class="form-control" id="quoted-wait" type="text">
+                                    </div>
+                                    <button class="btn btn-primary" id="add-train-btn" type="submit">Submit</button>
+                                </form>
                             </div>
-                            <button class="btn btn-primary" id="add-train-btn" type="submit">Submit</button>
-                        </form>
+                        </div>
                     </div>
+
                 </div>
             </div>
+        </div>
+        </div>
         </div>
 
     </class>
