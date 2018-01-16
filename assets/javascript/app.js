@@ -16,30 +16,31 @@ var database = firebase.database();
 
 // TO DO: update the next three lines to reference the restaurant from Google Places API
 var currentCity = "chicago"; //can change this to take the value of the tab selected
-var currentRest = "publican" //will be the name of the restaurant from Google Places API
+var currentRest = "little goat" //will be the name of the restaurant from Google Places API
 $("#selected-restaurant").text(currentRest);
 
 //sends the user input for the current restaurant to Firebase
 $("#add-wait-time").on("click", function (event) {
     event.preventDefault();
+    //stores user's reported party size and wait time with a stime stamp
     var userInput = {
         "partySize": $("#party-size").val().trim(),
         "waitTime": $("#quoted-wait").val().trim(),
         "time": Date.now()
     };
-    database.ref(currentCity + '/restaurants/' + currentRest).set(userInput);
+    database.ref('restaurants/' + currentCity + '/' + currentRest).set(userInput);
     $("#party-size").val("");
     $("#quoted-wait").val("");
 });
 
 //prints the most recent quoted wait times from Firebase to the DOM
-database.ref(currentCity + '/restaurants/' + currentRest).on("value", function (snapshot) {
+database.ref('restaurants/'+ currentCity + '/' + currentRest).on("value", function (snapshot) {
     var partySize = snapshot.val().partySize;
     var waitTime = snapshot.val().waitTime;
     var time = moment(snapshot.val().time).format('MMMM Do YYYY, h:mm:ss a');
     
     //TO DO:insert for loop to check that another user has previously entered
-    
+
     $("#reported-party-size").text(partySize);
     $("#reported-wait-time").text(waitTime);
     $("#entry-time").text(time);
