@@ -1,3 +1,8 @@
+//THE FOLLOWING JAVASCRIPT IS FOR THE INDEX.HTML PAGE
+$("#login-logout").on("click", function(event){
+    location.href="login.html";
+});
+
 //THE FOLLOWING JAVASCRIPT IS FOR THE WAIT-INPUT.HTML PAGE
 //This code utilizes firebase to display the most recent wait time for the selected restaurant
 //and allows users to input their party size and wait time
