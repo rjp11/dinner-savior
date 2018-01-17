@@ -14,9 +14,10 @@ var config = {
 firebase.initializeApp(config);
 var database = firebase.database();
 
-// TO DO: update the next three lines to reference the restaurant from Google Places API
+// TO DO: update the next two lines to reference the restaurant from Google Places API
 var currentCity = "chicago"; //can change this to take the value of the tab selected
 var currentRest = "little goat" //will be the name of the restaurant from Google Places API
+
 $("#selected-restaurant").text(currentRest);
 
 //sends the user input for the current restaurant to Firebase
