@@ -78,14 +78,20 @@ $(document).ready(function () {
 //THE FOLLOWING JAVASCRIPT IS FOR THE RESTAURANT SEARCH/GOOGLE API
 
 var selectResult = {};
+var search = "";
 var picked = {};
 var getPhotoURLByReference = function (ref) {
     return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyCBPyv2jsI299n6NBrTgszQfbPzWI-4ukc`
 };
 $("#search").on("click", function (event) {
-    $("#Possible-matches").empty();
+   
     event.preventDefault();
-    var search = $("#search-input").val().trim();
+    search = $("#search-input").val().trim();
+    localStorage.clear();
+    localStorage.setItem("search", search);
+    location.href = "restaurant-search.html";
+    function PossibleMatches() {
+        $("#Possible-matches").empty();    
     var queryURL = 'https://cors-anywhere.herokuapp.com/' +
         'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+ChicagoIL' +
         search + '&key=AIzaSyCBPyv2jsI299n6NBrTgszQfbPzWI-4ukc';
@@ -134,6 +140,7 @@ $("#search").on("click", function (event) {
             }
         });
     $("#search-input").val("");
+    }
 });
 
 $(document).on("click", ".selected", function () {
