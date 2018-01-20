@@ -1,3 +1,5 @@
+//THE FOLLOWING JAVASCRIPT IS FOR THE NAVBAR
+
 //THE FOLLOWING JAVASCRIPT IS FOR THE INDEX.HTML PAGE
 $("#login-logout").on("click", function (event) {
     location.href = "login.html";
