@@ -1,3 +1,76 @@
-h1{
-    color: black;
+body, html {
+    height: 100%;
+}
+
+h1 {
+    color: white;
+}
+
+h6 {
+    color: rgb(190, 190, 190);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+.ds-logo {
+    font-family: 'Pompiere', cursive;
+}
+
+.navbar-logo {
+    margin: 10px 50px 0px 25px;
+}
+
+.navbar-semi-transparent {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.nav li, .nav #login-logout {
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 25px;
+}
+
+.options {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.main-text h1 {
+    font-size: 64px;
+}
+
+.main-text h4, h6{
+   font-family: 'Open Sans', sans-serif;
+}
+
+#pancakes {
+    position: relative;
+    width: 100%;
+    z-index: 0;
+}
+
+.main-image {
+    margin-bottom: 0px;
+}
+
+.main-cover {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    z-index: 50;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.main-text{
+    position: absolute;
+    top: 20%;
+    text-align: center;
+    width: 100%;
+    z-index: 100;
+}
+
+.search-bar {
+    margin-top: 60px;
 }
