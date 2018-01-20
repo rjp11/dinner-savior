@@ -74,3 +74,21 @@ h6 {
 .search-bar {
     margin-top: 60px;
 }
+.demo{
+    color: #FF4500;
+    font-size: 20px;
+    padding-bottom: 0px;
+    position: relative;
+    top: 10px;
+}
+
+.introjs-showElement h4 {
+    color:black;
+    font-weight: bold;
+}
+
+.introjs-showElement h6 {
+    color:black;
+    font-weight: bold;
+}
+
