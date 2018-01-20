@@ -100,37 +100,37 @@ $("#search").on("click", function (event) {
         .done(function (response) {
             //console.log(queryURL);
             //console.log(response);
-            
-                var result = response.results;
-                console.log(result);
-                // Looping through each result item
-                for (var i = 0; i < result.length; i++) {
-                    // Creating and storing a div tag
-                    picked = result[i].formatted_address;
-                    var restaurantDiv = $("<div>").text(result[i].name);
-                    // Creating a paragraph tag with the result item's rating
-                    var p = $("<p>").text("Rating: " + result[i].rating);
-                    var address = $("<p>").text("Adress: " + result[i].formatted_address);
-                    var selectButton = $("<button>").text(" Select ");
-                    selectButton.addClass("selected");
-                    selectButton.attr("data-name", result[i].name);
-                    selectButton.attr("data-rating",result[i].rating);
-                    selectButton.attr("data-address", result[i].formatted_address);
-                    //?????var selectButton = $("<button onclick = selectedFunction(selectResult)>").text(" Select ");???????
-                    // Creating and storing an image tag
-                    //var restaurantImage = $("<img>");
-                    // Setting the src attribute of the image to a property pulled off the result item
-                    //restaurantImage.attr("src", results[i].images.fixed_height.url);
-                    // Appending the paragraph and image tag to the restaurantDiv
-                    //this is where I store the photoreference                 
-                    var photoRef = result[i].photos[0].photo_reference;
-                    var url = getPhotoURLByReference(photoRef);
-                    var img = $("<img>");
-                    img.attr("src", url);
 
-                    restaurantDiv.append(p, address, selectButton, img);
-                    // Prependng the restaurantDiv 
-                    $("#Possible-matches").append(restaurantDiv);
+            var result = response.results;
+            console.log(result);
+            // Looping through each result item
+            for (var i = 0; i < result.length; i++) {
+                // Creating and storing a div tag
+                picked = result[i].formatted_address;
+                var restaurantDiv = $("<div>").text(result[i].name);
+                // Creating a paragraph tag with the result item's rating
+                var p = $("<p>").text("Rating: " + result[i].rating);
+                var address = $("<p>").text("Adress: " + result[i].formatted_address);
+                var selectButton = $("<button>").text(" Select ");
+                selectButton.addClass("selected");
+                selectButton.attr("data-name", result[i].name);
+                selectButton.attr("data-rating", result[i].rating);
+                selectButton.attr("data-address", result[i].formatted_address);
+                //?????var selectButton = $("<button onclick = selectedFunction(selectResult)>").text(" Select ");???????
+                // Creating and storing an image tag
+                //var restaurantImage = $("<img>");
+                // Setting the src attribute of the image to a property pulled off the result item
+                //restaurantImage.attr("src", results[i].images.fixed_height.url);
+                // Appending the paragraph and image tag to the restaurantDiv
+                //this is where I store the photoreference                 
+                var photoRef = result[i].photos[0].photo_reference;
+                var url = getPhotoURLByReference(photoRef);
+                var img = $("<img>");
+                img.attr("src", url);
+
+                restaurantDiv.append(p, address, selectButton, img);
+                // Prependng the restaurantDiv 
+                $("#Possible-matches").append(restaurantDiv);
             }
         });
     $("#search-input").val("");
@@ -139,9 +139,9 @@ $("#search").on("click", function (event) {
 $(document).on("click", ".selected", function () {
     //console.log("the functions works");
     selectResult = {
-    name : $(this).attr("data-name"),
-    rating: $(this).attr("data-rating"),
-    address: $(this).attr("data-address")
+        name: $(this).attr("data-name"),
+        rating: $(this).attr("data-rating"),
+        address: $(this).attr("data-address")
     }
     console.log(selectResult)
 });
@@ -171,16 +171,25 @@ $("#selected-restaurant").text(currentRest);
 //sends the user input for the current restaurant to Firebase
 $("#add-wait-time").on("click", function (event) {
     event.preventDefault();
+    var partySize = $("#party-size").val().trim();
+    var waitTime = $("#quoted-wait").val().trim();
 
-    //stores user's reported party size and wait time with a stime stamp
-    var userInput = {
-        "partySize": $("#party-size").val().trim(),
-        "waitTime": $("#quoted-wait").val().trim(),
-        "time": Date.now()
+    if (partySize > 0 && partySize < 13 && isNaN(`${waitTime}`) === false) {
+        //stores user's reported party size and wait time with a stime stamp
+        var userInput = {
+            "partySize": partySize,
+            "waitTime": waitTime,
+            "time": Date.now()
+        };
+
+        database.ref('restaurants/' + currentCity + '/' + currentRest).set(userInput);
+        $("#party-size").val("");
+        $("#quoted-wait").val("");
+
+    } else {
+        alert("improper input!")
     };
-    database.ref('restaurants/' + currentCity + '/' + currentRest).set(userInput);
-    $("#party-size").val("");
-    $("#quoted-wait").val("");
+
 });
 
 //prints the most recent quoted wait times from Firebase to the DOM
