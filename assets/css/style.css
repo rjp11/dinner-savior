@@ -1,3 +1,4 @@
+/* STYLING FOR INDEX.HTML */
 body, html {
     height: 100%;
 }
@@ -12,7 +13,7 @@ h6 {
     font-weight: 400;
 }
 
-.ds-logo {
+.ds-logo, #selected-restaurant {
     font-family: 'Pompiere', cursive;
 }
 
@@ -39,7 +40,7 @@ h6 {
     font-size: 64px;
 }
 
-.main-text h4, h6{
+.options h4, h6{
    font-family: 'Open Sans', sans-serif;
 }
 
@@ -74,6 +75,7 @@ h6 {
 .search-bar {
     margin-top: 60px;
 }
+
 .demo{
     color: #FF4500;
     font-size: 20px;
@@ -83,12 +85,29 @@ h6 {
 }
 
 .introjs-showElement h4 {
-    color:black;
+    color: black;
     font-weight: bold;
 }
 
 .introjs-showElement h6 {
-    color:black;
+    color: black;
     font-weight: bold;
 }
+
+
+
+/* STYLING FOR WAIT-INPUT */
+.input-row {
+    margin-top: 100px;
+}
+
+#selected-restaurant {
+    margin-top: 100px;
+}
+
+input[type="text"], textarea {
+
+    background-color : rgba(0, 0, 0,0.75);
+  
+  }
 
