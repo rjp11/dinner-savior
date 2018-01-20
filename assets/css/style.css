@@ -76,6 +76,26 @@ h6 {
     margin-top: 60px;
 }
 
+.demo{
+    color: #FF4500;
+    font-size: 20px;
+    padding-bottom: 0px;
+    position: relative;
+    top: 10px;
+}
+
+.introjs-showElement h4 {
+    color: black;
+    font-weight: bold;
+}
+
+.introjs-showElement h6 {
+    color: black;
+    font-weight: bold;
+}
+
+
+
 /* STYLING FOR WAIT-INPUT */
 .input-row {
     margin-top: 100px;
@@ -90,3 +110,4 @@ input[type="text"], textarea {
     background-color : rgba(0, 0, 0,0.75);
   
   }
+
