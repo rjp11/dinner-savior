@@ -8,12 +8,12 @@ $("#login-logout").on("click", function (event) {
 //THE FOLLOWING JAVASCRIPT IS FOR THE LOGIN PAGE
 $(document).ready(function () {
     var config = {
-        apiKey: "AIzaSyCpYPP827KmYgJ4kF1Yfiw6hoW0FBwRFWI",
-        authDomain: "dinnersavior.firebaseapp.com",
-        databaseURL: "https://dinnersavior.firebaseio.com",
-        projectId: "dinnersavior",
-        storageBucket: "dinnersavior.appspot.com",
-        messagingSenderId: "297576795204"
+        apiKey: "AIzaSyCitT0ot2ltK4HGubAVgPa4vup90VfXTEE",
+        authDomain: "dinner-savio.firebaseapp.com",
+        databaseURL: "https://dinner-savio.firebaseio.com",
+        projectId: "dinner-savio",
+        storageBucket: "dinner-savio.appspot.com",
+        messagingSenderId: "69909255571"
     };
     firebase.initializeApp(config);
 
@@ -151,15 +151,6 @@ $(document).on("click", ".selected", function () {
 //and allows users to input their party size and wait time
 
 // Initialize Firebase
-var config = {
-    apiKey: "AIzaSyCitT0ot2ltK4HGubAVgPa4vup90VfXTEE",
-    authDomain: "dinner-savio.firebaseapp.com",
-    databaseURL: "https://dinner-savio.firebaseio.com",
-    projectId: "dinner-savio",
-    storageBucket: "dinner-savio.appspot.com",
-    messagingSenderId: "69909255571"
-};
-firebase.initializeApp(config);
 var database = firebase.database();
 
 // TO DO: update the next two lines to reference the restaurant from Google Places API
@@ -187,7 +178,7 @@ $("#add-wait-time").on("click", function (event) {
         $("#quoted-wait").val("");
 
     } else {
-        alert("improper input!")
+        $(".modal").style.display = "block";
     };
 
 });
