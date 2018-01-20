@@ -8,83 +8,69 @@
     <!-- bootstrap reference -->
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
     <!-- bootswatch theme -->
-    <link rel='stylesheet' href='https://bootswatch.com/3/superhero/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://bootswatch.com/3/cyborg/bootstrap.min.css'>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pompiere" rel="stylesheet">
     <!-- additional local css styling -->
     <link rel='stylesheet' href='assets/css/style.css'>
     <title>Dinner Savior</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <h3>Dinner Savior</h3>
-            </div>
-            <ul class="nav navbar-nav navbar-left">
-                <li>
-                    <button type="button" class="btn btn-default navbar-btn city-option" id="#">Chicago</button>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-default navbar-btn city-option" id="#">New York City</button>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-default navbar-btn city-option" id="#">San Francisco</button>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-default navbar-btn city-option" id="#">Los Angeles</button>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <button type="button" class="btn btn-default navbar-btn" id="login-logout">login</button>
-                </li>
-            </ul>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-semi-transparent">
+        <div class="navbar-header">
+            <a href="index.html">
+                <h3 class="ds-logo navbar-logo">DS</h3>
+            </a>
         </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <button type="button" class="btn btn-default navbar-btn" id="login-logout">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </button>
+            </li>
+        </ul>
     </nav>
     <class class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading" id="selected-restaurant"></div>
-
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Last Reported Wait Time</div>
-                                <h5>Party size:
-                                    <span id="reported-party-size"></span>
-                                </h5>
-                                <h5>Quoted wait time:
-                                    <span id="reported-wait-time"></span>
-                                </h5>
-                                <h5>Time of entry:
-                                    <span id="entry-time"></span>
-                                </h5>
-                            </div>
-                        </div>
-
-
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">Your Input</div>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="party-size">Party Size</label>
-                                        <input class="form-control" id="party-size" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="quoted-wait">Quoted Wait Time (minutes)</label>
-                                        <input class="form-control" id="quoted-wait" type="text">
-                                    </div>
-                                    <button class="btn btn-primary" id="add-wait-time" type="submit">Submit</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <h1 class= "text-center" id ="selected-restaurant"></h1>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="row input-row">
+                    <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="options">
+                            <h4 class="text-center">current wait</h4>
+                            <h6>party size:
+                                <span id="reported-party-size"></span>
+                            </h6>
+                            <h6>wuoted wait time:
+                                <span id="reported-wait-time"></span>
+                            </h6>
+                            <h6>time of entry:
+                                <span id="entry-time"></span>
+                            </h6>
+                    </div>
+                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="options">
+                            <h4>your input</h4>
+                            <form>
+                                <div class="form-group">
+                                    <input class="form-control" id="party-size" type="text" placeholder="party size (1-12)">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id="quoted-wait" type="text" placeholder="quoted wait time (minutes)">
+                                </div>
+                                <button class="btn btn-primary" id="add-wait-time" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         </div>
 

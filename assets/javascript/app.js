@@ -171,6 +171,7 @@ $("#selected-restaurant").text(currentRest);
 //sends the user input for the current restaurant to Firebase
 $("#add-wait-time").on("click", function (event) {
     event.preventDefault();
+
     //stores user's reported party size and wait time with a stime stamp
     var userInput = {
         "partySize": $("#party-size").val().trim(),
