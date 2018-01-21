@@ -6,3 +6,9 @@ $("#search").on("click", function (event) {
     localStorage.setItem("search", search);
     location.href = "restaurant-search.html";
 });
+
+$("#search-input").keyup(function(e){
+    if(e.keyCode === 13){
+        $("#search").click();
+    }
+});

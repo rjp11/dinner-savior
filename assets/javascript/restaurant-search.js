@@ -1,6 +1,6 @@
 var selectResult = {};
 var getPhotoURLByReference = function (ref) {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyCBPyv2jsI299n6NBrTgszQfbPzWI-4ukc`
+    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyABxTiVVJ0EDcIaW2OPg15xCz0B4LcsxWs`
 };
 $(document).ready (function () {
     $(".col-sm-4").empty();
@@ -9,7 +9,7 @@ $(document).ready (function () {
     //$("#search-input").val().trim();
     var queryURL = 'https://cors-anywhere.herokuapp.com/' +
         'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+ChicagoIL' +
-        search + '&key=AIzaSyCBPyv2jsI299n6NBrTgszQfbPzWI-4ukc';
+        search + '&key=AIzaSyABxTiVVJ0EDcIaW2OPg15xCz0B4LcsxWs';
     // performing an AJAX GET request
     //remember to add your API KEY to the url above. 
 
