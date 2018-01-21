@@ -1,12 +1,12 @@
 var selectResult = {};
-var picked = {};
 var getPhotoURLByReference = function (ref) {
     return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyCBPyv2jsI299n6NBrTgszQfbPzWI-4ukc`
 };
-$("#search").on("click", function (event) {
-    $("#Possible-matches").empty();
-    event.preventDefault();
-    var search = $("#search-input").val().trim();
+$(document).ready (function () {
+    $(".col-sm-4").empty();
+    //event.preventDefault();
+    var search = localStorage.getItem("search");
+    //$("#search-input").val().trim();
     var queryURL = 'https://cors-anywhere.herokuapp.com/' +
         'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+ChicagoIL' +
         search + '&key=AIzaSyCBPyv2jsI299n6NBrTgszQfbPzWI-4ukc';
@@ -28,7 +28,11 @@ $("#search").on("click", function (event) {
             for (var i = 0; i < result.length; i++) {
                 // Creating and storing a div tag
                 picked = result[i].formatted_address;
-                var restaurantDiv = $("<div>").text(result[i].name);
+                var restaurantDiv = $("<div id = selected-restaurant>").text(result[i].name);
+                var photoRef = result[i].photos[0].photo_reference;
+                var url = getPhotoURLByReference(photoRef);
+                var img = $("<img>");
+                img.attr("src", url);
                 // Creating a paragraph tag with the result item's rating
                 var p = $("<p>").text("Rating: " + result[i].rating);
                 var address = $("<p>").text("Adress: " + result[i].formatted_address);
@@ -37,6 +41,7 @@ $("#search").on("click", function (event) {
                 selectButton.attr("data-name", result[i].name);
                 selectButton.attr("data-rating", result[i].rating);
                 selectButton.attr("data-address", result[i].formatted_address);
+                selectButton.attr("data-image", img);
                 //?????var selectButton = $("<button onclick = selectedFunction(selectResult)>").text(" Select ");???????
                 // Creating and storing an image tag
                 //var restaurantImage = $("<img>");
@@ -44,29 +49,30 @@ $("#search").on("click", function (event) {
                 //restaurantImage.attr("src", results[i].images.fixed_height.url);
                 // Appending the paragraph and image tag to the restaurantDiv
                 //this is where I store the photoreference                 
-                var photoRef = result[i].photos[0].photo_reference;
-                var url = getPhotoURLByReference(photoRef);
-                var img = $("<img>");
-                img.attr("src", url);
-
                 restaurantDiv.append(p, address, selectButton, img);
                 // Prependng the restaurantDiv 
-                $("#Possible-matches").append(restaurantDiv);
+                $(".col-sm-4").append(restaurantDiv);
             }
         });
-    $("#search-input").val("");
+    //$("#search-input").val("");
 });
 
 $(document).on("click", ".selected", function () {
     //console.log("the functions works");
-    selectResult = {
-        name: $(this).attr("data-name"),
-        rating: $(this).attr("data-rating"),
-        address: $(this).attr("data-address"),
+    
+        var name = $(this).attr("data-name");
+        var rating = $(this).attr("data-rating");
+        var address = $(this).attr("data-address");
+        var img = $(this).attr("data-image");
         //add image url
         //image: $(this).attr("")
-    }
+        /////////////////  OR IF YOU CAN NOT GET ACCESS TO OBJECT selecResult  then/////////
+    
     localStorage.clear();
-    localStorage.setItem("selected-restaurant", selectResult);
+    localStorage.setItem("selected_restaurant", name);
+    localStorage.setItem("selected_rating", rating);
+    localStorage.setItem("selected_address", address);
+    localStorage.setItem("selected_img", img);
+    console.log(localStorage.selected_restaurant);
     location.href = "wait-input.html";
 });
