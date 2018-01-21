@@ -151,9 +151,7 @@ input[type="text"], textarea {
     max-height: 150px;
     padding-left:0px;
 }
-#edamam-badge{
-    display: inline-block;
-}
+
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

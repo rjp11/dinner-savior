@@ -36,11 +36,12 @@ $(document).ready(function(){
         })
         .done(function(response){   
             var styles = response.restaurants[0].restaurant.cuisines;
+            console.log(styles)
             var style = styles.split(",")[0]
             $("#dish-style").text(style);
             var apiKey = "3c5cf2a76798a4875b2063b8fb23d043"
             var appID = "ab462d6d"
-            var queryURL = `https://api.edamam.com/search?q=${style}&app_id=${appID}&app_key=${apiKey}&from=0&to=3`
+            var queryURL = `https://api.edamam.com/search?q=${style}&app_id=${appID}&app_key=${apiKey}&from=0&to=3&diet=balanced&ingr=10&calories=1000`
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -48,6 +49,7 @@ $(document).ready(function(){
                 if (response) {
                     for (var j = 0; j < 3; j++) {
                         var data = response.hits[j].recipe 
+                        console.log(data)
                         displayRecipes(data);        
                     }
                 }

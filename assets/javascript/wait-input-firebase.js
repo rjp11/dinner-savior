@@ -44,12 +44,15 @@ $("#add-wait-time").on("click", function (event) {
 
 //prints the most recent quoted wait times from Firebase to the DOM
 database.ref('restaurants/' + currentCity + '/' + currentRest).on("value", function (snapshot) {
-    var partySize = snapshot.val().partySize;
-    var waitTime = snapshot.val().waitTime;
-    var time = moment(snapshot.val().time).format('MMMM Do YYYY, h:mm a');
+    //to avoid the "Cannot read property 'partySize' of null" thrown by firebase
+    if(snapshot.val()){
+        var partySize = snapshot.val().partySize;
+        var waitTime = snapshot.val().waitTime;
+        var time = moment(snapshot.val().time).format('MMMM Do YYYY, h:mm a');
 
 
-    $("#reported-party-size").text(partySize);
-    $("#reported-wait-time").text(waitTime);
-    $("#entry-time").text(time);
+        $("#reported-party-size").text(partySize);
+        $("#reported-wait-time").text(waitTime);
+        $("#entry-time").text(time);
+    }
 });
