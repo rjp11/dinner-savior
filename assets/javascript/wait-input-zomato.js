@@ -28,6 +28,29 @@ $(document).ready(function(){
         newDiv.append(left,right)
         $(".display").append(newDiv);  
     }
+    var placeNewSearchBar = function(){
+        var newInput = $("<input type='text' class='form-control' placeholder='Find more recipes'>")
+        var button = $("<button class='btn btn-default' type='button' id='search-more'>").text("GO");
+        var newSpan = $("<span class='input-group-btn'>").append(button)
+        var newDiv = $("<div class='input-group searchMoreRecipe col-md-12'>").append(newInput,newSpan)
+        $(".moreOptions").append(newDiv)
+    }
+    var askEdamam = function(queryURL){
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).done(function (response) {
+            if (response) {
+                for (var j = 0; j < response.hits.length; j++) {
+                    var data = response.hits[j].recipe 
+                    console.log(data)
+                    displayRecipes(data);        
+                }
+            }
+            placeNewSearchBar();
+        });
+    }
+
     $("#get-recipe").on("click", function(){
         var cityLat = 41.881832;
         var cityLong = -87.623177
@@ -45,18 +68,7 @@ $(document).ready(function(){
             var apiKey = "3c5cf2a76798a4875b2063b8fb23d043"
             var appID = "ab462d6d"
             var queryURL = `https://api.edamam.com/search?q=${styleSearch}&app_id=${appID}&app_key=${apiKey}&from=0&to=3`
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            }).done(function (response) {
-                if (response) {
-                    for (var j = 0; j < response.hits.length; j++) {
-                        var data = response.hits[j].recipe 
-                        console.log(data)
-                        displayRecipes(data);        
-                    }
-                }
-            });
+            askEdamam(queryURL);        
             $(".recipes-header").show();        
             $("#show-recipes").scrollView();
         })

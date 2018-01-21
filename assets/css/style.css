@@ -154,7 +154,7 @@ input[type="text"], textarea {
 .searchMoreRecipe{
     width:50%;
     margin:auto;
-    margin-bottom:50px
+    margin-bottom:100px
 }
   .modal {
     display: none; /* Hidden by default */
