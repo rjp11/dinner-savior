@@ -126,6 +126,7 @@ input[type="text"], textarea {
 }
 .recipes{
     padding-top:100px;
+    margin-bottom: 50px;
 }
 .recipe{
     width:60%;
@@ -150,18 +151,6 @@ input[type="text"], textarea {
     max-height: 150px;
     padding-left:0px;
 }
-/* ul::-webkit-scrollbar {
-    width: 6px;
-    background-color: #F5F5F5;
-} 
-ul::-webkit-scrollbar-thumb{
-    background-color:darkgrey;
-} */
-
-
-
-
-
 
   .modal {
     display: none; /* Hidden by default */
