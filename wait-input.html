@@ -14,10 +14,6 @@
     <!-- additional local css styling -->
     <link rel='stylesheet' href='assets/css/style.css'>
     <title>Dinner Savior</title>
-    <style>
-        #get-recipe{height:40px}
-        #get-recipe:hover{position:relative; bottom:5px; cursor:pointer}
-    </style>
 </head>
 
 <body>
@@ -64,13 +60,11 @@
                             </h6>
                         </div>
                         <div class="suggestion row">
-                            <div class="col-md-8">
-                                <h4>Cook at home instead?</h4>
+                            <div class="col-md-10 col-sm-10">
+                                <h4 class="suggest">Cook at home instead?</h4>
                             </div>
-                            <div class="col-md-4">
-                                <!-- <button class="btn btn-primary" id="add-wait-time" type="submit">Get Recipe</button> -->
-                                <!-- <a href="assets/images/pot.png" id="get-recipe">Get Recipe</a> -->
-                                <img src="assets/images/pot.png" id="get-recipe"></img>
+                            <div class="col-md-2 col-sm-2">
+                                <img src="assets/images/pot.png" id="get-recipe"></img>                               
                             </div>                        
                         </div>
                     </div>
@@ -91,6 +85,10 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row recipes" id="show-recipes">
+            <h2 class="recipes-header">Here are three awesome <span id="dish-style"></span> recipes</h2>
+            <div class="col-md-12 display"></div>
         </div>
     </div>
 
