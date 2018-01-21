@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    // var inputRestName = localStorage.selected_restaurant
-    var inputRestName = "little goat diner";
+    var inputRestName = localStorage.selected_restaurant;
     $.fn.scrollView = function () {
         return this.each(function () {
           $('html, body').animate({
