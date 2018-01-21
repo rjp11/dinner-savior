@@ -145,13 +145,15 @@ input[type="text"], textarea {
     margin-bottom:25px;
 }
 .recipe ul{
-    overflow: auto;
+    overflow: scroll;
     list-style: none;
     margin-left:10px;
     max-height: 150px;
     padding-left:0px;
 }
-
+#edamam-badge{
+    display: inline-block;
+}
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
