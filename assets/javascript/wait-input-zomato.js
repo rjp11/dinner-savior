@@ -1,6 +1,8 @@
 $(document).ready(function(){
     $(".recipes-header").hide();
     var inputRestName = localStorage.selected_restaurant;
+    var apiKey_edamam = "3c5cf2a76798a4875b2063b8fb23d043"
+    var appID_edamam = "ab462d6d"
     $.fn.scrollView = function () {
         return this.each(function () {
           $('html, body').animate({
@@ -29,7 +31,7 @@ $(document).ready(function(){
         $(".display").append(newDiv);  
     }
     var placeNewSearchBar = function(){
-        var newInput = $("<input type='text' class='form-control' placeholder='Find more recipes'>")
+        var newInput = $("<input type='text' class='form-control search-terms' placeholder='Find more recipes'>")
         var button = $("<button class='btn btn-default' type='button' id='search-more'>").text("GO");
         var newSpan = $("<span class='input-group-btn'>").append(button)
         var newDiv = $("<div class='input-group searchMoreRecipe col-md-12'>").append(newInput,newSpan)
@@ -41,6 +43,7 @@ $(document).ready(function(){
             method: "GET"
         }).done(function (response) {
             if (response) {
+                $(".display").empty();  
                 for (var j = 0; j < response.hits.length; j++) {
                     var data = response.hits[j].recipe 
                     console.log(data)
@@ -65,12 +68,23 @@ $(document).ready(function(){
             var first = styles.split(",")[0];
             var styleSearch= first !== "American" ? first:"American diner"
             $("#dish-style").text(first);
-            var apiKey = "3c5cf2a76798a4875b2063b8fb23d043"
-            var appID = "ab462d6d"
-            var queryURL = `https://api.edamam.com/search?q=${styleSearch}&app_id=${appID}&app_key=${apiKey}&from=0&to=3`
+            var queryURL = `https://api.edamam.com/search?q=${styleSearch}&app_id=${appID_edamam}&app_key=${apiKey_edamam}&from=0&to=3`
             askEdamam(queryURL);        
             $(".recipes-header").show();        
             $("#show-recipes").scrollView();
         })
-    });       
+    });
+    
+    $(".moreOptions").on("click","#search-more", function(){
+        var input = $(".search-terms").val();
+        if(input){ 
+            $(".search-terms").val("");
+            $(".searchMoreRecipe").remove();
+            var querymoreURL = `https://api.edamam.com/search?q=${input}&app_id=${appID_edamam}&app_key=${apiKey_edamam}&from=0&to=3`
+            askEdamam(querymoreURL);
+
+        }
+    })
+    
+
 })
