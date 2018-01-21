@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    $(".recipes-header").hide();
     var inputRestName = localStorage.selected_restaurant;
     $.fn.scrollView = function () {
         return this.each(function () {
@@ -27,34 +28,36 @@ $(document).ready(function(){
         newDiv.append(left,right)
         $(".display").append(newDiv);  
     }
-    $(".recipes-header").hide();
     $("#get-recipe").on("click", function(){
-        var queryURL = "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?entity_type=zone&q="+ inputRestName + "&start=0&count=10&lat=41.881832&lon=-87.623177&apikey=76bdd00d04ef3b4840c98961c3dd363e"
+        var cityLat = 41.881832;
+        var cityLong = -87.623177
+        var queryURL = "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?entity_type=zone&q="+ 
+        inputRestName + "&start=0&count=10&lat=" + cityLat + "&lon="+ cityLong + "&apikey=76bdd00d04ef3b4840c98961c3dd363e"
         $.ajax({
             url: queryURL,
             method : "GET"
         })
         .done(function(response){   
             var styles = response.restaurants[0].restaurant.cuisines;
-            console.log(styles)
-            var style = styles.split(",")[0]
-            $("#dish-style").text(style);
+            var first = styles.split(",")[0];
+            var styleSearch= first !== "American" ? first:"American diner"
+            $("#dish-style").text(first);
             var apiKey = "3c5cf2a76798a4875b2063b8fb23d043"
             var appID = "ab462d6d"
-            var queryURL = `https://api.edamam.com/search?q=${style}&app_id=${appID}&app_key=${apiKey}&from=0&to=3&diet=balanced&ingr=10&calories=1000`
+            var queryURL = `https://api.edamam.com/search?q=${styleSearch}&app_id=${appID}&app_key=${apiKey}&from=0&to=3`
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).done(function (response) {
                 if (response) {
-                    for (var j = 0; j < 3; j++) {
+                    for (var j = 0; j < response.hits.length; j++) {
                         var data = response.hits[j].recipe 
                         console.log(data)
                         displayRecipes(data);        
                     }
                 }
             });
-            $(".recipes-header").show();
+            $(".recipes-header").show();        
             $("#show-recipes").scrollView();
         })
     });       

@@ -151,7 +151,11 @@ input[type="text"], textarea {
     max-height: 150px;
     padding-left:0px;
 }
-
+.searchMoreRecipe{
+    width:50%;
+    margin:auto;
+    margin-bottom:50px
+}
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
