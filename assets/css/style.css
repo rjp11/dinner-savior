@@ -108,6 +108,49 @@ h6 {
 input[type="text"], textarea {
     background-color : rgba(0, 0, 0,0.75);
   }
+#get-recipe{
+    height:40px
+}
+#get-recipe:hover{
+    position:relative; 
+    bottom:5px; 
+    cursor:pointer;
+}
+.suggest{
+    text-align: center;
+}
+.recipes-header{
+    text-align: center; 
+    font-family:'Pompiere',cursive;
+    font-weight: bold;
+}
+.recipes{
+    padding-top:100px;
+    margin-bottom: 50px;
+}
+.recipe{
+    width:60%;
+    margin:auto;
+    height: 350px;
+    margin-top:40px;
+}
+.recipe img{
+    padding:1px;
+    border:1px solid silver;
+    background-color:grey;
+    height: 300px;
+    margin-top: 10px;
+}
+.recipe h5, .recipe ul{
+    margin-bottom:25px;
+}
+.recipe ul{
+    overflow: auto;
+    list-style: none;
+    margin-left:10px;
+    max-height: 150px;
+    padding-left:0px;
+}
 
   .modal {
     display: none; /* Hidden by default */
