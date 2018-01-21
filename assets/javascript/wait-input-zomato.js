@@ -1,7 +1,8 @@
 $(document).ready(function(){
     var inputRestName = localStorage.selected_restaurant;
-    var apiKey_edamam = "3c5cf2a76798a4875b2063b8fb23d043"
-    var appID_edamam = "ab462d6d"
+    var apiKey_edamam = "3c5cf2a76798a4875b2063b8fb23d043";
+    var appID_edamam = "ab462d6d";
+    $(".recipes-header").hide();
     $.fn.scrollView = function () {
         return this.each(function () {
           $('html, body').animate({
@@ -10,10 +11,9 @@ $(document).ready(function(){
         });
       }
     var displayRecipeHeader = function(style){
-        $(".recipes-header").empty();
-        var span1 = `<span id='dish-style'>${style}</span>`
-        var span2 = "<span id='edamam-badge' data-color='transparant'></span>"
-        $(".recipes-header").html(`Here are three awesome ${span1} recipes ${span2}`);
+        $(".recipes-header").text("")
+        $(".recipes-header").prepend(`Here are three awesome ${style} recipes `);
+        $(".recipes-header").show();
     }
     var displayRecipes = function(data){
         var newDiv = $("<div class='recipe row'>");
@@ -99,6 +99,5 @@ $(document).ready(function(){
             $("#show-recipes").scrollView();
         }
     })
-    
 
 })
