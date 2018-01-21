@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    $(".recipes-header").hide();
     var inputRestName = localStorage.selected_restaurant;
     var apiKey_edamam = "3c5cf2a76798a4875b2063b8fb23d043"
     var appID_edamam = "ab462d6d"
@@ -10,6 +9,12 @@ $(document).ready(function(){
           }, 3000);
         });
       }
+    var displayRecipeHeader = function(style){
+        $(".recipes-header").empty();
+        var span1 = `<span id='dish-style'>${style}</span>`
+        var span2 = "<span id='edamam-badge' data-color='transparant'></span>"
+        $(".recipes-header").html(`Here are three awesome ${span1} recipes ${span2}`);
+    }
     var displayRecipes = function(data){
         var newDiv = $("<div class='recipe row'>");
         var img = $("<img>")
@@ -21,10 +26,12 @@ $(document).ready(function(){
         var ingreTitle = $("<p>").text("Ingredients:")
         var ingre = $("<ul>")
         var ingreData= data.ingredientLines;
+        
         for(var i = 0; i < ingreData.length; i++){
             var li = $("<li>").text(ingreData[i]);
             ingre.append(li);
         }
+        
         var servings= $("<p>").text("Servings: "+data.yield);              
         var right = $("<div class='col-md-6 pull-left'>").append(name,ingreTitle,ingre,servings,link)
         newDiv.append(left,right)
@@ -53,12 +60,12 @@ $(document).ready(function(){
             placeNewSearchBar();
         });
     }
-
     $("#get-recipe").on("click", function(){
         var cityLat = 41.881832;
         var cityLong = -87.623177
         var queryURL = "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?entity_type=zone&q="+ 
         inputRestName + "&start=0&count=10&lat=" + cityLat + "&lon="+ cityLong + "&apikey=76bdd00d04ef3b4840c98961c3dd363e"
+        
         $.ajax({
             url: queryURL,
             method : "GET"
@@ -67,10 +74,13 @@ $(document).ready(function(){
             var styles = response.restaurants[0].restaurant.cuisines;
             var first = styles.split(",")[0];
             var styleSearch= first !== "American" ? first:"American diner"
-            $("#dish-style").text(first);
+            
+            displayRecipeHeader(first);  
+            
             var queryURL = `https://api.edamam.com/search?q=${styleSearch}&app_id=${appID_edamam}&app_key=${apiKey_edamam}&from=0&to=3`
+            
             askEdamam(queryURL);        
-            $(".recipes-header").show();        
+            
             $("#show-recipes").scrollView();
         })
     });
@@ -81,8 +91,12 @@ $(document).ready(function(){
             $(".search-terms").val("");
             $(".searchMoreRecipe").remove();
             var querymoreURL = `https://api.edamam.com/search?q=${input}&app_id=${appID_edamam}&app_key=${apiKey_edamam}&from=0&to=3`
+            
             askEdamam(querymoreURL);
-
+            
+            displayRecipeHeader(input)
+            
+            $("#show-recipes").scrollView();
         }
     })
     
