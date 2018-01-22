@@ -94,6 +94,27 @@ h6 {
     font-weight: bold;
 }
 
+/* STYLING FOR RESTAURANT-SEARCH */
+#results {
+    margin-top: 100px;
+    margin-bottom: 0px;
+}
+
+.one-restaurant {
+    margin: 50px 0px;
+}
+
+#search-info h6, h3 {
+    font-family: 'Open Sans', 'sans-serif';
+}
+
+#search-info a {
+    color: white;
+}
+
+#search-image img {
+    max-width: 100%;
+}
 
 
 /* STYLING FOR WAIT-INPUT */

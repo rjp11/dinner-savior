@@ -1,74 +1,63 @@
 var selectResult = {};
 var getPhotoURLByReference = function (ref) {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyABxTiVVJ0EDcIaW2OPg15xCz0B4LcsxWs`
+    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyAI_-LF5954Vl6HNopXzOqCK2X4zkqRNCE`;
 };
-$(document).ready (function () {
-    $(".col-sm-4").empty();
+$(document).ready(function () {
+    $(".restaurant-image").empty();
+    $(".restaurant-info").empty();
     //event.preventDefault();
     var search = localStorage.getItem("search");
     //$("#search-input").val().trim();
     var queryURL = 'https://cors-anywhere.herokuapp.com/' +
         'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+ChicagoIL' +
-        search + '&key=AIzaSyABxTiVVJ0EDcIaW2OPg15xCz0B4LcsxWs';
+        search + '&key=AIzaSyAI_-LF5954Vl6HNopXzOqCK2X4zkqRNCE';
     // performing an AJAX GET request
     //remember to add your API KEY to the url above. 
-
     $.ajax({
             url: queryURL,
             method: "GET"
         })
         // After data comes back from request
         .done(function (response) {
-            //console.log(queryURL);
-            //console.log(response);
-
             var result = response.results;
-            console.log(result);
             // Looping through each result item
-            for (var i = 0; i < result.length; i++) {
-                // Creating and storing a div tag
-                picked = result[i].formatted_address;
-                var restaurantDiv = $("<div id = selected-restaurant>").text(result[i].name);
+            for (var i = 0; i < 2; i++) {
                 var photoRef = result[i].photos[0].photo_reference;
                 var url = getPhotoURLByReference(photoRef);
-                var img = $("<img>");
-                img.attr("src", url);
-                // Creating a paragraph tag with the result item's rating
-                var p = $("<p>").text("Rating: " + result[i].rating);
-                var address = $("<p>").text("Adress: " + result[i].formatted_address);
-                var selectButton = $("<button>").text(" Select ");
-                selectButton.addClass("selected");
-                selectButton.attr("data-name", result[i].name);
-                selectButton.attr("data-rating", result[i].rating);
-                selectButton.attr("data-address", result[i].formatted_address);
-                selectButton.attr("data-image", img);
-                //?????var selectButton = $("<button onclick = selectedFunction(selectResult)>").text(" Select ");???????
-                // Creating and storing an image tag
-                //var restaurantImage = $("<img>");
-                // Setting the src attribute of the image to a property pulled off the result item
-                //restaurantImage.attr("src", results[i].images.fixed_height.url);
-                // Appending the paragraph and image tag to the restaurantDiv
-                //this is where I store the photoreference                 
-                restaurantDiv.append(p, address, selectButton, img);
-                // Prependng the restaurantDiv 
-                $(".col-sm-4").append(restaurantDiv);
+                var restName = result[i].name;
+                var restRating = result[i].rating;
+                var restAddress = result[i].formatted_address;
+                var nameDiv = $("<h3 class='selected'>").text(restName);
+                var ratingDiv = $("<h6>").text(restRating);
+                var addressDiv = $("<h6>").text(restAddress);
+                var imgDiv = $(`<img src=${url}>`)
+                var anchorDiv = $("<a href='wait-input.html'>").append(nameDiv)
+
+                nameDiv.attr("data-name", restName);
+                nameDiv.attr("data-rating", restRating);
+                nameDiv.attr("data-address", restAddress);
+                nameDiv.attr("data-imageURL", url);
+                var restaurantDiv = $("<div class='row one-restaurant'>");
+                var imageDiv = $("<div class='col-lg-6 col-md-8 col-sm-12 col-xs-12' id='search-image'>").append(imgDiv);
+                var textDiv = $(`<div id='search-info-text'>`).append(anchorDiv,ratingDiv, addressDiv);
+                var infoDiv = $("<div class='col-lg-6 col-md-4 col-sm-12 col-xs-12' id='search-info'>").append(textDiv);
+
+                restaurantDiv.append(imageDiv, infoDiv)
+                $(".search-results").append(restaurantDiv);
+                // $("#search-info").append(selectButton);
             }
         });
-    //$("#search-input").val("");
 });
 
 $(document).on("click", ".selected", function () {
     //console.log("the functions works");
-    
-        var name = $(this).attr("data-name");
-        var rating = $(this).attr("data-rating");
-        var address = $(this).attr("data-address");
-        var img = $(this).attr("data-image");
-        //add image url
-        //image: $(this).attr("")
-        /////////////////  OR IF YOU CAN NOT GET ACCESS TO OBJECT selecResult  then/////////
-    
-    localStorage.clear();
+    var name = $(this).attr("data-name");
+    var rating = $(this).attr("data-rating");
+    var address = $(this).attr("data-address");
+    var img = $(this).attr("data-imageURL");
+    //add image url
+    //image: $(this).attr("")
+    /////////////////  OR IF YOU CAN NOT GET ACCESS TO OBJECT selecResult  then/////////
     localStorage.setItem("selected_restaurant", name);
     localStorage.setItem("selected_rating", rating);
     localStorage.setItem("selected_address", address);
