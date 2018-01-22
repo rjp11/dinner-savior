@@ -1,6 +1,6 @@
 var selectResult = {};
 var getPhotoURLByReference = function (ref) {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyABxTiVVJ0EDcIaW2OPg15xCz0B4LcsxWs`
+    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyAI_-LF5954Vl6HNopXzOqCK2X4zkqRNCE`
 };
 $(document).ready(function () {
     $(".restaurant-image").empty();
@@ -10,10 +10,9 @@ $(document).ready(function () {
     //$("#search-input").val().trim();
     var queryURL = 'https://cors-anywhere.herokuapp.com/' +
         'https://maps.googleapis.com/maps/api/place/textsearch/json?query=restaurants+in+ChicagoIL' +
-        search + '&key=AIzaSyABxTiVVJ0EDcIaW2OPg15xCz0B4LcsxWs';
+        search + '&key=AIzaSyAI_-LF5954Vl6HNopXzOqCK2X4zkqRNCE';
     // performing an AJAX GET request
     //remember to add your API KEY to the url above. 
-
     $.ajax({
             url: queryURL,
             method: "GET"
@@ -22,43 +21,43 @@ $(document).ready(function () {
         .done(function (response) {
             var result = response.results;
             // Looping through each result item
-            for (var i = 0; i < result.length; i++) {
-
+            for (var i = 0; i < 2; i++) {
                 var photoRef = result[i].photos[0].photo_reference;
                 var url = getPhotoURLByReference(photoRef);
+                var restName = result[i].name;
+                var restRating = result[i].rating;
+                var restAddress = result[i].formatted_address;
+                var nameDiv = $("<h3 class='selected'>").text(restName);
+                var ratingDiv = $("<h6>").text(restRating);
+                var addressDiv = $("<h6>").text(restAddress);
+                var imgDiv = $(`<img src=${url}>`)
+                var anchorDiv = $("<a href='wait-input.html'>").append(nameDiv)
 
-                var img = `<img src='${url}'>`;
-                var name = `<a class='selected' href='wait-input.html'> <h3>${result[i].name}</h3></a>`;
-                var p = `<h6> Rating: ${result[i].rating}`;
-                var address = `<h6>${result[i].formatted_address}`;
+                nameDiv.attr("data-name", restName);
+                nameDiv.attr("data-rating", restRating);
+                nameDiv.attr("data-address", restAddress);
+                nameDiv.attr("data-imageURL", url);
+                var restaurantDiv = $("<div class='row one-restaurant'>");
+                var imageDiv = $("<div class='col-lg-6 col-md-8 col-sm-12 col-xs-12' id='search-image'>").append(imgDiv);
+                var textDiv = $(`<div id='search-info-text'>`).append(anchorDiv,ratingDiv, addressDiv);
+                var infoDiv = $("<div class='col-lg-6 col-md-4 col-sm-12 col-xs-12' id='search-info'>").append(textDiv);
 
-                var selectButton = $("<button>").text(" Select ");
-                selectButton.addClass("selected");
-                selectButton.attr("data-name", result[i].name);
-                selectButton.attr("data-rating", result[i].rating);
-                selectButton.attr("data-address", result[i].formatted_address);
-                selectButton.attr("data-image", img);
-
-                var restaurantDiv = $(`<div class='row one-restaurant'> <div class='col-lg-6 col-md-8 col-sm-12 col-xs-12' id='search-image'>${img}</div> <div class='col-lg-6 col-md-4 col-sm-12 col-xs-12' id='search-info'> <div id='search-info-text'${name} ${p} ${address}</div></div> </div>`);
-                
+                restaurantDiv.append(imageDiv, infoDiv)
                 $(".search-results").append(restaurantDiv);
                 // $("#search-info").append(selectButton);
-
             }
         });
 });
 
 $(document).on("click", ".selected", function () {
     //console.log("the functions works");
-
     var name = $(this).attr("data-name");
     var rating = $(this).attr("data-rating");
     var address = $(this).attr("data-address");
-    var img = $(this).attr("data-image");
+    var img = $(this).attr("data-imageURL");
     //add image url
     //image: $(this).attr("")
     /////////////////  OR IF YOU CAN NOT GET ACCESS TO OBJECT selecResult  then/////////
-
     localStorage.setItem("selected_restaurant", name);
     localStorage.setItem("selected_rating", rating);
     localStorage.setItem("selected_address", address);

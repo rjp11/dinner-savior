@@ -104,15 +104,6 @@ h6 {
     margin: 50px 0px;
 }
 
-#search-info {
-    position: relative;
-}
-
-#search-info-text{
-    position: absolute;
-    top: 70%;
-}
-
 #search-info h6, h3 {
     font-family: 'Open Sans', 'sans-serif';
 }
