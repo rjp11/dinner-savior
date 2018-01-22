@@ -20,7 +20,7 @@ $("#selected-restaurant").text(currentRest);
 
 //sends the user input for the current restaurant to Firebase
 $("#add-wait-time").on("click", function (event) {
-    event.preventDefault();
+    // event.preventDefault();
     var partySize = $("#party-size").val().trim();
     var waitTime = $("#quoted-wait").val().trim();
 

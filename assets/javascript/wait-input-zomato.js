@@ -75,6 +75,8 @@ $(document).ready(function(){
             var first = styles.split(",")[0];
             var styleSearch= first !== "American" ? first:"American diner"
             
+            $(".searchMoreRecipe").remove();
+            
             displayRecipeHeader(first);  
             
             var queryURL = `https://api.edamam.com/search?q=${styleSearch}&app_id=${appID_edamam}&app_key=${apiKey_edamam}&from=0&to=3`
