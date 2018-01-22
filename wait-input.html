@@ -23,13 +23,13 @@
                 <h3 class="ds-logo navbar-logo">DS</h3>
             </a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
+        <!-- <ul class="nav navbar-nav navbar-right">
             <li>
                 <button type="button" class="btn btn-default navbar-btn" id="login-logout">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                 </button>
             </li>
-        </ul>
+        </ul> -->
     </nav>
     <div class="container-fluid">
         <div class="row">
@@ -87,15 +87,17 @@
             </div>
         </div>
         <div class="row recipes" id="show-recipes">
-            <h2 class="recipes-header">Here are three awesome <span id="dish-style"></span> recipes</h2>
+            <h2 class="recipes-header"><span id='edamam-badge' data-color='transparant'></span></h2>
             <div class="col-md-12 display"></div>
         </div>
+        <div class="row moreOptions">
+        </div>
     </div>
-
     <!-- link to jQuery -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
         crossorigin='anonymous'>
     </script>
+    <script src="https://developer.edamam.com/attribution/badge.js"></script>
     <!-- link to firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <!-- link to moment.js -->

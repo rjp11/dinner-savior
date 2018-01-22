@@ -166,13 +166,17 @@ input[type="text"], textarea {
     margin-bottom:25px;
 }
 .recipe ul{
-    overflow: auto;
+    overflow: scroll;
     list-style: none;
     margin-left:10px;
     max-height: 150px;
     padding-left:0px;
 }
-
+.searchMoreRecipe{
+    width:50%;
+    margin:auto;
+    margin-bottom:100px
+}
   .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */

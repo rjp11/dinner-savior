@@ -1,6 +1,6 @@
 var selectResult = {};
 var getPhotoURLByReference = function (ref) {
-    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyAI_-LF5954Vl6HNopXzOqCK2X4zkqRNCE`
+    return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=AIzaSyAI_-LF5954Vl6HNopXzOqCK2X4zkqRNCE`;
 };
 $(document).ready(function () {
     $(".restaurant-image").empty();
