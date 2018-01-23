@@ -1,5 +1,7 @@
 /* STYLING FOR INDEX.HTML */
-body, html {
+
+body,
+html {
     height: 100%;
 }
 
@@ -13,23 +15,26 @@ h6 {
     font-weight: 400;
 }
 
-.ds-logo, #selected-restaurant {
-    font-family: 'Pompiere', cursive; 
+.ds-logo,
+#selected-restaurant {
+    font-family: 'Pompiere', cursive;
 }
 
-.ds-logo{
+.ds-logo {
     word-spacing: 30px;
 }
+
 .navbar-logo {
     margin: 10px 50px 0px 25px;
-    letter-spacing: 0.0625em; 
+    letter-spacing: 0.0625em;
 }
 
 .navbar-semi-transparent {
     background-color: rgba(0, 0, 0, 0.75);
 }
 
-.nav li, .nav #login-logout {
+.nav li,
+.nav #login-logout {
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
     margin-right: 25px;
@@ -44,9 +49,10 @@ h6 {
     font-size: 64px;
 }
 
-.options h4, h6{
-   font-family: 'Open Sans', sans-serif;
-   line-height: 2em;
+.options h4,
+h6 {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 2em;
 }
 
 #pancakes {
@@ -69,7 +75,7 @@ h6 {
     height: 100%;
 }
 
-.main-text{
+.main-text {
     position: absolute;
     top: 20%;
     text-align: center;
@@ -81,7 +87,7 @@ h6 {
     margin-top: 60px;
 }
 
-.demo{
+.demo {
     color: #FF4500;
     font-size: 20px;
     padding-bottom: 0px;
@@ -99,7 +105,9 @@ h6 {
     font-weight: bold;
 }
 
+
 /* STYLING FOR RESTAURANT-SEARCH */
+
 #results {
     margin-top: 100px;
     margin-bottom: 0px;
@@ -109,7 +117,8 @@ h6 {
     margin: 50px 0px;
 }
 
-#search-info h6, h3 {
+#search-info h6,
+h3 {
     font-family: 'Open Sans', 'sans-serif';
 }
 
@@ -123,76 +132,106 @@ h6 {
 
 
 /* STYLING FOR WAIT-INPUT */
-.input-row {
+
+.selected-row {
     margin-top: 100px;
+}
+
+#selected-restaurant-pic img {
+    max-width: 100%;
 }
 
 #selected-restaurant {
     margin-top: 100px;
 }
 
-input[type="text"], textarea {
-    background-color : rgba(0, 0, 0,0.75);
-  }
-#get-recipe{
-    height:40px
+.input-row {
+    margin-top: 50px;
 }
-#get-recipe:hover{
-    position:relative; 
-    bottom:5px; 
-    cursor:pointer;
+
+input[type="text"],
+textarea {
+    background-color: rgba(0, 0, 0, 0.75);
 }
-.suggest{
+
+#get-recipe {
+    height: 40px
+}
+
+#get-recipe:hover {
+    position: relative;
+    bottom: 5px;
+    cursor: pointer;
+}
+
+.suggest {
     text-align: center;
 }
-.recipes-header{
-    text-align: center; 
-    font-family:'Pompiere',cursive;
+
+.recipes-header {
+    text-align: center;
+    font-family: 'Pompiere', cursive;
     font-weight: bold;
 }
-.recipes{
-    padding-top:100px;
+
+.recipes {
+    padding-top: 100px;
     margin-bottom: 50px;
 }
-.recipe{
-    width:60%;
-    margin:auto;
+
+.recipe {
+    width: 60%;
+    margin: auto;
     height: 350px;
-    margin-top:40px;
+    margin-top: 40px;
 }
-.recipe img{
-    padding:1px;
-    border:1px solid silver;
-    background-color:grey;
+
+.recipe img {
+    padding: 1px;
+    border: 1px solid silver;
+    background-color: grey;
     height: 300px;
     margin-top: 10px;
 }
-.recipe h5, .recipe ul{
-    margin-bottom:25px;
+
+.recipe h5,
+.recipe ul {
+    margin-bottom: 25px;
 }
-.recipe ul{
+
+.recipe ul {
     overflow: scroll;
     list-style: none;
-    margin-left:10px;
+    margin-left: 10px;
     max-height: 150px;
-    padding-left:0px;
+    padding-left: 0px;
 }
-.searchMoreRecipe{
-    width:50%;
-    margin:auto;
-    margin-bottom:100px
+
+.searchMoreRecipe {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 100px
 }
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 200; /* Sit on top */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 200;
+    /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
 
 #home {
