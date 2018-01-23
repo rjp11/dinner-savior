@@ -26,75 +26,73 @@
             </a>
         </div>
         <a class="btn btn-large demo" href="javascript:void(0);" onclick="javascript:introJs().start();">Demo</a>
-        <!-- <ul class="nav navbar-nav navbar-right">
-            <li>
-                <button type="button" class="btn btn-default navbar-btn" id="login-logout">
-                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                </button>
-            </li>
-        </ul> -->
     </nav>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="modal">
-                    <div class="modal-content">
-                        <h2>incorrect input</h2>
-                    </div>
-                </div>
+        <div class="row selected-row">
+            <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="text-center" id="selected-restaurant-pic"></div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <h1 class="text-center" id="selected-restaurant"></h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="row input-row">
-                    <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="options" data-step="1" data-intro="Newest reported time">
-                            <h4 class="text-center">Current wait</h4>
-                            <h6>Party size:
-                                <span id="reported-party-size"></span>
-                            </h6>
-                            <h6>Quoted wait time:
-                                <span id="reported-wait-time"></span>
-                            </h6>
-                            <h6>Time of entry:
-                                <span id="entry-time"></span>
-                            </h6>
-                        </div>
-                        <div class="suggestion row" data-step="3" data-intro="Be your own chef!">
-                            <div class="col-md-10 col-sm-10">
-                                <h4 class="suggest">Cook at home instead?</h4>
-                            </div>
-                            <div class="col-md-2 col-sm-2">
-                                <img src="assets/images/pot.png" id="get-recipe"></img>                               
-                            </div>                        
-                        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="row input-row well">
+                <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="options" data-step="1" data-intro="Newest reported time">
+                        <h4 class="text-center">Current wait</h4>
+                        <h6>Party size:
+                            <span id="reported-party-size"></span>
+                        </h6>
+                        <h6>Quoted wait time:
+                            <span id="reported-wait-time"></span>
+                        </h6>
+                        <h6>Time of entry:
+                            <span id="entry-time"></span>
+                        </h6>
                     </div>
-                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="options" data-step="2" data-intro="Save others from the save misery">
-                            <h4>Tell us all about it</h4>
-                            <form>
-                                <div class="form-group">
-                                    <input class="form-control" id="party-size" type="text" placeholder="party size (1-12)">
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" id="quoted-wait" type="text" placeholder="quoted wait time (minutes)">
-                                </div>
-                                <button class="btn btn-primary" id="add-wait-time" type="submit">Submit</button>
-                            </form>
-                        </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="options" data-step="2" data-intro="Save others from the save misery">
+                        <h4 class="text-center">Tell us all about it</h4>
+                        <form>
+                            <div class="form-group">
+                                <input class="form-control" id="party-size" type="text" placeholder="party size (1-12)">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="quoted-wait" type="text" placeholder="quoted wait time (minutes)">
+                            </div>
+                            <button class="btn btn-primary" id="add-wait-time" type="submit">Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>
+            <div class="suggestion row" data-step="3" data-intro="Be your own chef!">
+                <div class="col-lg-2 col-md-2 hidden-sm col-xs-1"></div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8">
+                    <h4 class="suggest text-center" id="home">Cook at home instead?</h4>
+                </div>
+
+                <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
+                    <img src="assets/images/pot.png" id="get-recipe"></img>
+                </div>
+            </div>
         </div>
-        <div class="row recipes" id="show-recipes">
-            <h2 class="recipes-header"><span id='edamam-badge' data-color='transparant'></span></h2>
-            <div class="col-md-12 display"></div>
-        </div>
-        <div class="row moreOptions">
-        </div>
+    </div>
+    </div>
+    <div class="row recipes" id="show-recipes">
+        <h2 class="recipes-header">
+            <span id='edamam-badge' data-color='transparant'></span>
+        </h2>
+        <div class="col-md-12 display"></div>
+    </div>
+    <div class="row moreOptions">
+    </div>
     </div>
     <!-- link to jQuery -->
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='
@@ -105,9 +103,10 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <!-- link to moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-         <!-- link to intro.js -->
+    <!-- link to intro.js -->
     <script src="assets/javascript/intro.js"></script>
     <!-- link to javascript -->
+    <script src='assets/javascript/wait-input-picture.js'></script>
     <script src='assets/javascript/wait-input-firebase.js'></script>
     <script src='assets/javascript/wait-input-zomato.js'></script>
 </body>
