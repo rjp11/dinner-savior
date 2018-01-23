@@ -36,7 +36,7 @@ h6 {
 }
 
 .options {
-    margin-top: 60px;
+    margin-top: 10px;
     margin-bottom: 30px;
 }
 
@@ -195,3 +195,14 @@ input[type="text"], textarea {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+#home {
+    float: left;
+}
+
+#get-recipe {
+    float: left;
+}
+
+.suggest {
+    font-family: 'Open Sans', 'sans-serif';
+}

@@ -12,11 +12,14 @@ var database = firebase.database();
 
 // TO DO: update the next two lines to reference the restaurant from Google Places API
 var currentCity = "chicago"; //can change this to take the value of the tab selected
-var currentRest = localStorage.getItem("selected_restaurant") //will be the name of the restaurant from Google Places API
+var currentRest = localStorage.getItem("selected_restaurant"); //will be the name of the restaurant from Google Places API
+var currentPic = localStorage.getItem("selected_img");
+console.log(currentPic);
 
 //available localStorage data: selected_address selected_rating selected_img
 
 $("#selected-restaurant").text(currentRest);
+$("#selected-restaurant-pic").html(`<img src='${currentPic}'>`);
 
 //sends the user input for the current restaurant to Firebase
 $("#add-wait-time").on("click", function (event) {
