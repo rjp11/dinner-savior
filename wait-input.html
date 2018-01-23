@@ -11,6 +11,8 @@
     <link rel='stylesheet' href='https://bootswatch.com/3/cyborg/bootstrap.min.css'>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pompiere" rel="stylesheet">
+    <!-- css styling for intro.js -->
+    <link rel='stylesheet' href='assets/css/introjs.css'>
     <!-- additional local css styling -->
     <link rel='stylesheet' href='assets/css/style.css'>
     <title>Dinner Savior</title>
@@ -23,6 +25,7 @@
                 <h3 class="ds-logo navbar-logo">DS</h3>
             </a>
         </div>
+        <a class="btn btn-large demo" href="javascript:void(0);" onclick="javascript:introJs().start();">Demo</a>
         <!-- <ul class="nav navbar-nav navbar-right">
             <li>
                 <button type="button" class="btn btn-default navbar-btn" id="login-logout">
@@ -47,19 +50,19 @@
                 <div class="row input-row">
                     <div class="col-lg-1 col-md-1 hidden-sm hidden-xs"></div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="options">
-                            <h4 class="text-center">current wait</h4>
-                            <h6>party size:
+                        <div class="options" data-step="1" data-intro="Newest reported time">
+                            <h4 class="text-center">Current wait</h4>
+                            <h6>Party size:
                                 <span id="reported-party-size"></span>
                             </h6>
-                            <h6>quoted wait time:
+                            <h6>Quoted wait time:
                                 <span id="reported-wait-time"></span>
                             </h6>
-                            <h6>time of entry:
+                            <h6>Time of entry:
                                 <span id="entry-time"></span>
                             </h6>
                         </div>
-                        <div class="suggestion row">
+                        <div class="suggestion row" data-step="3" data-intro="Be your own chef!">
                             <div class="col-md-10 col-sm-10">
                                 <h4 class="suggest">Cook at home instead?</h4>
                             </div>
@@ -70,8 +73,8 @@
                     </div>
                     <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
                     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                        <div class="options">
-                            <h4>your input</h4>
+                        <div class="options" data-step="2" data-intro="Save others from the save misery">
+                            <h4>Tell us all about it</h4>
                             <form>
                                 <div class="form-group">
                                     <input class="form-control" id="party-size" type="text" placeholder="party size (1-12)">
@@ -102,6 +105,8 @@
     <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
     <!-- link to moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+         <!-- link to intro.js -->
+    <script src="assets/javascript/intro.js"></script>
     <!-- link to javascript -->
     <script src='assets/javascript/wait-input-firebase.js'></script>
     <script src='assets/javascript/wait-input-zomato.js'></script>
