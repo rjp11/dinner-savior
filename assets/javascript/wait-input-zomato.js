@@ -73,7 +73,8 @@ $(document).ready(function(){
         .done(function(response){   
             var styles = response.restaurants[0].restaurant.cuisines;
             var first = styles.split(",")[0];
-            var styleSearch= first !== "American" ? first:"American diner"
+            var styleSearch= first === "American" ? "American diner":first;
+            var styleSearch= styleSearch === "Mexican" ? "Mexican plate":styleSearch;
             
             $(".searchMoreRecipe").remove();
 
