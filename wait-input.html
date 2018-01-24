@@ -25,7 +25,7 @@
                 <h3 class="ds-logo navbar-logo">DS</h3>
             </a>
         </div>
-        <a class="btn btn-large demo" href="javascript:void(0);" onclick="javascript:introJs().start();">Demo</a>
+        <a class="btn btn-large demo navbar-right" href="javascript:void(0);" onclick="javascript:introJs().start();">DS Demo</a>
     </nav>
     <div class="container-fluid">
         <div class="row selected-row">
@@ -62,11 +62,26 @@
                         <h4 class="text-center">Tell us all about it</h4>
                         <form>
                             <div class="form-group">
-                                <input class="form-control" id="party-size" type="text" placeholder="party size (1-12)">
+                                <select class="form-control" id="sel1" placeholder="Party Size">
+                                    <option>Party Size</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" id="quoted-wait" type="text" placeholder="quoted wait time (minutes)">
                             </div>
+                            <div id="error-message"></div>
                             <button class="btn btn-primary" id="add-wait-time" type="submit">Submit</button>
                         </form>
                     </div>

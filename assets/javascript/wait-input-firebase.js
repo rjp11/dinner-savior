@@ -23,12 +23,12 @@ $("#selected-restaurant-pic").html(`<img src='${currentPic}'>`);
 
 //sends the user input for the current restaurant to Firebase
 $("#add-wait-time").on("click", function (event) {
-    // event.preventDefault();
-    var partySize = $("#party-size").val().trim();
+    event.preventDefault();
+    var partySize = $("#party-size").val();
     var waitTime = $("#quoted-wait").val().trim();
 
     if (partySize > 0 && partySize < 13 && isNaN(`${waitTime}`) === false) {
-        //stores user's reported party size and wait time with a stime stamp
+        
         var userInput = {
             "partySize": partySize,
             "waitTime": waitTime,
@@ -40,7 +40,8 @@ $("#add-wait-time").on("click", function (event) {
         $("#quoted-wait").val("");
 
     } else {
-        $(".modal").style.display = "block";
+        $("#quoted-wait").val("");
+        $("#error-message").html(`<p>Incorrect input format</p>`);
     };
 
 });
