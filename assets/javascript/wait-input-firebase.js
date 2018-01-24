@@ -27,6 +27,8 @@ $("#add-wait-time").on("click", function (event) {
     var partySize = $("#party-size").val();
     var waitTime = $("#quoted-wait").val().trim();
 
+    console.log(partySize);
+
     if (partySize > 0 && partySize < 13 && isNaN(`${waitTime}`) === false) {
         
         var userInput = {
