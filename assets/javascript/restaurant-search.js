@@ -21,7 +21,7 @@ $(document).ready(function () {
         .done(function (response) {
             var result = response.results;
             // Looping through each result item
-            for (var i = 0; i < 2; i++) {
+            for (var i = 0; i < 5; i++) {
                 var photoRef = result[i].photos[0].photo_reference;
                 var url = getPhotoURLByReference(photoRef);
                 var restName = result[i].name;
