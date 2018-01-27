@@ -45,21 +45,21 @@
                 <div class="col-lg-2 col-md-2 hidden-sm hidden-xs"></div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="options" data-step="1" data-intro="If you are at home, this area contains the latest reported wait time.">
-                        <h4 class="text-center">Current wait</h4>
-                        <h6>Party size:
+                        <h3 class="text-center">Current wait</h3>
+                        <h4>Party size:
                             <span id="reported-party-size"></span>
-                        </h6>
-                        <h6>Quoted wait time:
+                        </h4>
+                        <h4>Quoted wait time:
                             <span id="reported-wait-time"></span>
-                        </h6>
-                        <h6>Time of entry:
+                        </h4>
+                        <h4>Time of entry:
                             <span id="entry-time"></span>
-                        </h6>
+                        </h4>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                     <div class="options" data-step="2" data-intro="If you are at a restaurant, let others now the quoted wait time">
-                        <h4 class="text-center">Tell us all about it</h4>
+                        <h3 class="text-center">Tell us all about it</h3>
                         <form>
                             <div class="form-group">
                                 <select class="form-control" id="party-size" placeholder="Party Size">
@@ -90,7 +90,10 @@
             <div class="suggestion row">
                 <div class="col-lg-2 col-md-2 hidden-sm col-xs-1"></div>
                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8" data-step="3" data-intro="If the wait time is too long, make your own tasty version!">
-                    <h4 class="suggest text-center" id="home">Cook at home instead?</h4>
+                    <h4 class="suggest text-center" id="home">
+                        Cook at home instead?
+                        <span class="arrow"><img src="assets/images/arrow.png"></img></span>
+                    </h4>            
                 </div>
 
                 <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2">
@@ -105,7 +108,6 @@
     </div>
     <div class="row recipes" id="show-recipes">
         <h2 class="recipes-header">
-            <span id='edamam-badge' data-color='transparant'></span>
         </h2>
         <div class="col-md-12 display"></div>
     </div>

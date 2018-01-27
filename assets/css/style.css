@@ -27,6 +27,7 @@ h6 {
 .navbar-logo {
     margin: 10px 50px 0px 25px;
     letter-spacing: 0.0625em;
+    font-size: 45px;
 }
 
 .navbar-semi-transparent {
@@ -89,7 +90,7 @@ h6 {
 
 .demo {
     color: #FF4500;
-    font-size: 20px;
+    font-size: 30px;
     padding-bottom: 0px;
     position: relative;
     top: 5px;
@@ -151,8 +152,12 @@ h3 {
 
 .input-row {
     margin-top: 50px;
+    height: 400px;
+    padding-top: 50px;
 }
-
+.input-row h3{
+    margin-bottom: 50px;
+}
 #party-size {
     background-color: rgba(0, 0, 0, 0.75);
 }
@@ -164,10 +169,6 @@ textarea {
 
 #error-message{
     color: red;
-}
-
-#get-recipe {
-    height: 40px
 }
 
 #get-recipe:hover {
@@ -224,6 +225,24 @@ textarea {
     margin: auto;
     margin-bottom: 100px
 }
+.arrow img{
+    width: 100px;
+    margin-left: 40px;
+    padding-bottom: 30px;
+}
+
+#get-recipe {
+    height: 100px;
+}
+.form-control{
+    font-size: 22px;
+    height: 50px;
+    margin-bottom: 40px
+}
+#add-wait-time{
+   padding:5px;
+   font-size: 18px;
+}
 
 /* The Modal (background) */
 .modal {
@@ -264,10 +283,6 @@ textarea {
 }
 
 #home {
-    float: left;
-}
-
-#get-recipe {
     float: left;
 }
 
