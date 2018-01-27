@@ -27,7 +27,7 @@ h6 {
 .navbar-logo {
     margin: 10px 50px 0px 25px;
     letter-spacing: 0.0625em;
-    font-size: 45px;
+    font-size: 40px;
 }
 
 .navbar-semi-transparent {
@@ -152,6 +152,7 @@ h3 {
 
 .input-row {
     margin-top: 50px;
+    margin-bottom: 50px;
     height: 400px;
     padding-top: 50px;
 }
@@ -177,10 +178,6 @@ textarea {
     cursor: pointer;
 }
 
-.suggest {
-    text-align: center;
-}
-
 .recipes-header {
     text-align: center;
     font-family: 'Pompiere', cursive;
@@ -193,18 +190,21 @@ textarea {
 }
 
 .recipe {
-    width: 60%;
+    width: 80%;
     margin: auto;
-    height: 350px;
-    margin-top: 40px;
+    height: 400px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    font-size: 24px;
 }
 
 .recipe img {
     padding: 1px;
     border: 1px solid silver;
     background-color: grey;
-    height: 300px;
+    height: 400px;
     margin-top: 10px;
+    margin-left: 100px;
 }
 
 .recipe h5,
@@ -216,7 +216,7 @@ textarea {
     overflow: scroll;
     list-style: none;
     margin-left: 10px;
-    max-height: 150px;
+    max-height: 250px;
     padding-left: 0px;
 }
 
@@ -226,9 +226,16 @@ textarea {
     margin-bottom: 100px
 }
 .arrow img{
-    width: 100px;
-    margin-left: 40px;
-    padding-bottom: 30px;
+    width: 80px;
+    margin-left: 160px;
+}
+
+.suggest {
+    text-align: center;
+    position: relative;
+    left: 250px;
+    top: 20px;
+
 }
 
 #get-recipe {

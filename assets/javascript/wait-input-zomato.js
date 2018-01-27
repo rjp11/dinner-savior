@@ -20,7 +20,7 @@ $(document).ready(function(){
         var img = $("<img>")
         img.attr("src", data.image);
         var left = $("<div class='col-md-6'>").append(img);
-        var name = $("<h5>").text(data.label);
+        var name = $("<h4>").text(data.label);
         var link = $("<a>").text("Source: "+ data.source);
         link.attr("href", data.url)
         var ingreTitle = $("<p>").text("Ingredients:")
